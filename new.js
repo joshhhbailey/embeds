@@ -221,7 +221,6 @@ function init()
 
   // SCENE
   scene = new THREE.Scene();
-  scene.background = new THREE.Color(0xF0F0EE);
 
   // LIGHTS
   ambientLight = new THREE.AmbientLight(new THREE.Vector3(1.0, 1.0, 1.0), 0.5);
