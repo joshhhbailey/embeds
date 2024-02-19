@@ -2,7 +2,6 @@ import * as THREE from "three";
 import * as lil from "lil-gui";
 import Stats from "stats.js";
 
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import WebGL from "three/examples/jsm/capabilities/WebGL.js";
 
 class Blob
@@ -239,20 +238,13 @@ function init()
   // HERO ELEMENT
   blob = new Blob();
   scene.add(blob.m_mesh);
-  console.log(blob);
 
   // RENDERER
-  renderer = new THREE.WebGLRenderer();
+  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(container.clientWidth, container.clientHeight);
   container.append(renderer.domElement);
-
-  // CONTROLS
-  const controls = new OrbitControls(camera, renderer.domElement);
-	controls.minDistance = 25;
-	controls.maxDistance = 100;
-  controls.enablePan = false;
 
   // EVENTS
   tanFOV = Math.tan(((Math.PI / 180) * camera.fov / 2));
@@ -262,6 +254,7 @@ function init()
 
   // GUI
   const gui = new lil.GUI();
+  gui.close();
 
   // Geometry
   const geometryFolder = gui.addFolder("Geometry");
