@@ -259,17 +259,6 @@ function init()
   const geometryFolder = gui.addFolder("Geometry");
   geometryFolder.close();
 
-    // Transform
-    const transformFolder = geometryFolder.addFolder("Transform");
-    transformFolder.close();
-
-      // Scale
-      const scaleFolder = transformFolder.addFolder("Scale");
-      scaleFolder.close();
-      scaleFolder.add(blob.m_mesh.scale, "x", 0, 2, 0.1).name("X");
-      scaleFolder.add(blob.m_mesh.scale, "y", 0, 2, 0.1).name("Y");
-      scaleFolder.add(blob.m_mesh.scale, "z", 0, 2, 0.1).name("Z");
-
     // Material
     const materialFolder = geometryFolder.addFolder("Material");
     materialFolder.close();
