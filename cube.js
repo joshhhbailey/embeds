@@ -9,9 +9,9 @@ import WebGL from "three/examples/jsm/capabilities/WebGL.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 // Post Processing
-import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
-import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
-import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
+import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
+import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
+import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
 
 class Cell
 {
