@@ -1,6 +1,5 @@
 import * as THREE from "three";
 import * as lil from "lil-gui";
-import Stats from "stats.js";
 
 // Setup
 import WebGL from "three/examples/jsm/capabilities/WebGL.js";
@@ -370,10 +369,6 @@ let bloomProperties, debugProperties;
 
 let tanFOV, windowHeight;
 
-const stats = new Stats();
-stats.showPanel(0);
-document.body.appendChild(stats.dom);
-
 const clock = new THREE.Clock();
 
 if (WebGL.isWebGLAvailable())
@@ -442,8 +437,9 @@ function init()
 
   // CONTROLS
   controls = new OrbitControls(camera, renderer.domElement);
-	controls.minDistance = new THREE.Vector3().distanceTo(camera.position);
+	controls.minDistance = 50;
 	controls.maxDistance = 50;
+  controls.enableZoom = false;
   controls.enablePan = false;
   controls.enableDamping = true;
   controls.minPolarAngle = Math.PI * 0.25;
@@ -548,8 +544,6 @@ function tick()
 {
   renderer.setAnimationLoop(() =>
   {
-    stats.begin();
-
     // Get time between frames (ms)
     const delta = clock.getDelta();
 
@@ -559,7 +553,5 @@ function tick()
 
     // Render
     composer.render();
-
-    stats.end();
   })
 }
