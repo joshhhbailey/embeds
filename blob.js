@@ -1,6 +1,5 @@
 import * as THREE from "three";
 import * as lil from "lil-gui";
-import Stats from "stats.js";
 
 import WebGL from "three/examples/jsm/capabilities/WebGL.js";
 
@@ -196,10 +195,6 @@ let blob;
 
 let tanFOV, windowHeight;
 
-const stats = new Stats();
-stats.showPanel(0);
-document.body.appendChild(stats.dom);
-
 const clock = new THREE.Clock();
 
 if (WebGL.isWebGLAvailable())
@@ -321,8 +316,6 @@ function tick()
 {
   renderer.setAnimationLoop(() =>
   {
-    stats.begin();
-
     // Get time between frames (ms)
     const delta = clock.getDelta();
 
@@ -331,7 +324,5 @@ function tick()
 
     // Render
     renderer.render(scene, camera);
-
-    stats.end();
   })
 }
